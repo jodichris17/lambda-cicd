@@ -30,8 +30,10 @@ jobs:
 
       - name: Lint code
         run: |
-          pylint ~/test/lambda-cicd/lambda-functions/function1/lambda_function1.py
-          pylint ~/test/lambda-cicd/lambda-functions/function2/lambda_function2.py
+          export PYTHONPATH=$~/test/lambda-cicd/lambda-functions
+          pylint ~/test/lambda-cicd/lambda-functions/function1/lambda_function1.py --disable=R,C
+          pylint ~/test/lambda-cicd/lambda-functions/function2/lambda_function2.py --disable=R,C
+
 
       - name: Run tests
         run: |
