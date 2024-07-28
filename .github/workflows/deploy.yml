@@ -25,10 +25,10 @@ jobs:
       with:
         python-version: 3.10.12
 
-    # - name: Install dependencies
-    #   run: |
-    #     cd lambda_functions/${{ matrix.function }}
-    #     pip install -r requirements.txt
+    - name: Install dependencies
+      run: |
+        cd ~/test/lambda-cicd/lambda_functions/${{ matrix.function }}
+        pip install -r requirements.txt
 
     - name: Lint code
       run: |
