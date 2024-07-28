@@ -33,5 +33,4 @@ jobs:
     - name: Lint code
       run: |
         cd ~/test/lambda-cicd/lambda-functions/${{ matrix.function }}
-        pylint main.py
         pylint --rcfile=../../.pylintrc main.py
