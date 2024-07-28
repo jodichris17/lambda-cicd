@@ -23,7 +23,7 @@ jobs:
 
       - name: Install dependencies
         run: |
-          pip install -r ~/test/lambda-cicd/lambda-functions/function1
+          pip install -r ~/test/lambda-cicd/lambda-functions/function1/requirements.txt
           pip install -r lambda_functions/function2/requirements.txt
           pip install pylint
           pip install pytest
