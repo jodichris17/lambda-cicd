@@ -24,16 +24,16 @@ jobs:
       - name: Install dependencies
         run: |
           pip install -r ~/test/lambda-cicd/lambda-functions/function1/requirements.txt
-          pip install -r lambda_functions/function2/requirements.txt
+          pip install -r ~/test/lambda-cicd/lambda-functions/function2/requirements.txt
           pip install pylint
           pip install pytest
 
       - name: Lint code
         run: |
-          pylint lambda_functions/function1/lambda_function1.py
-          pylint lambda_functions/function2/lambda_function2.py
+          pylint ~/test/lambda-cicd/lambda-functions/function1/lambda_function1.py
+          pylint ~/test/lambda-cicd/lambda-functions/function2/lambda_function2.py
 
       - name: Run tests
         run: |
-          pytest lambda_functions/function1/test_lambda_function1.py
-          pytest lambda_functions/function2/test_lambda_function2.py
+          pytest ~/test/lambda-cicd/lambda-functions/function1/test_lambda_function1.py
+          pytest ~/test/lambda-cicd/lambda-functions/function2/test_lambda_function2.py
