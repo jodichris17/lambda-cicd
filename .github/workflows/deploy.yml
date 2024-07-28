@@ -39,3 +39,11 @@ jobs:
       run: |
         cd ~/test/lambda-cicd/lambda-functions/${{ matrix.function }}
         python -m unittest discover -s .
+    
+    - name: Deploy to LocalStack
+      run: |
+        cd ~/test/lambda-cicd/lambda-functions/${{ matrix.function }}
+        zip -r function.zip .
+        awslocal lambda create-function --function-name ${{ matrix.function }} \
+          --runtime python3.10 --role arn:aws:iam::123456789012:role/execution_role \
+          --handler main.lambda_handler --zip-file fileb://function.zip
