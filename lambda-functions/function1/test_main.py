@@ -7,7 +7,7 @@ class TestLambdaHandler(unittest.TestCase):
         context = {}
         response = lambda_handler(event, context)
         self.assertEqual(response['statusCode'], 200)
-        self.assertEqual(response['body'], '"Hello from Function 1"')
+        self.assertEqual(response['body'], '"Hello from Function 1 on development branch"')
 
 if __name__ == '__main__':
     unittest.main()
