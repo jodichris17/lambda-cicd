@@ -34,3 +34,8 @@ jobs:
       run: |
         cd ~/test/lambda-cicd/lambda-functions/${{ matrix.function }}
         pylint --rcfile=../../.pylintrc main.py
+
+    - name: Run unit tests
+      run: |
+        cd lambda_functions/${{ matrix.function }}
+        python -m unittest discover -s .
