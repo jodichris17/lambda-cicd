@@ -1,15 +1,16 @@
-name: Deploy Lambda Functions
+name: CI/CD Pipeline for Lambda Functions
 
 on:
   push:
     branches:
       - main
+      - 'feature/*'
   pull_request:
     branches:
       - main
 
 jobs:
-  deploy:
+  test-and-deploy:
     runs-on: self-hosted
 
     strategy:
@@ -41,6 +42,7 @@ jobs:
         python -m unittest discover -s .
     
     - name: Deploy to LocalStack
+      if: github.ref == 'refs/heads/main'
       run: |
         cd ~/test/lambda-cicd/lambda-functions/${{ matrix.function }}
         zip -r function.zip .
