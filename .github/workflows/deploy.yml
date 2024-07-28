@@ -27,7 +27,7 @@ jobs:
 
     - name: Install dependencies
       run: |
-        cd ~/test/lambda-cicd/lambda_functions/${{ matrix.function }}/main.py
+        cd ~/test/lambda-cicd/lambda_functions/${{ matrix.function }}
         pip install -r requirements.txt
 
     - name: Lint code
