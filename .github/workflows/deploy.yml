@@ -37,5 +37,5 @@ jobs:
 
     - name: Run unit tests
       run: |
-        cd ~/test/lambda-cicd/lambda_functions/${{ matrix.function }}
+        cd ~/test/lambda-cicd/lambda-functions/${{ matrix.function }}
         python -m unittest discover -s .
