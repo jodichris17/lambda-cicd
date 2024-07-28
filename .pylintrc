@@ -1,2 +1,13 @@
+[MASTER]
+disable=
+    C0114,  # missing-module-docstring
+    C0115,  # missing-class-docstring
+    C0116,  # missing-function-docstring
+    W0613,  # unused-argument
+    R0201,  # method could be a function
+
 [MESSAGES CONTROL]
-disable=C0114,C0116,W0613
+disable=missing-module-docstring,missing-function-docstring,unused-argument
+
+[FORMAT]
+max-line-length=100
