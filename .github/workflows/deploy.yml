@@ -1,0 +1,36 @@
+name: Deploy Lambda Functions
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: self-hosted
+
+    strategy:
+      matrix:
+        function: [function1, function2]
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: 3.10
+
+    - name: Install dependencies
+      run: |
+        cd lambda_functions/${{ matrix.function }}
+        pip install -r requirements.txt
+
+    - name: Lint code
+      run: |
+        cd lambda_functions/${{ matrix.function }}
+        pylint main.py
