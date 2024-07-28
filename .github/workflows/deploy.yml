@@ -14,7 +14,7 @@ jobs:
 
     strategy:
       matrix:
-        function: [main.py ]
+        function: [function1, function2]
 
     steps:
     - name: Checkout code
@@ -27,7 +27,7 @@ jobs:
 
     - name: Install dependencies
       run: |
-        cd ~/test/lambda-cicd/lambda_functions/${{ matrix.function }}
+        cd ~/test/lambda-cicd/lambda_functions/${{ matrix.function }}/main.py
         pip install -r requirements.txt
 
     - name: Lint code
